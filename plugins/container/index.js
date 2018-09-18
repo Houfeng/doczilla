@@ -1,6 +1,6 @@
-const CustomContainer = require('markdown-it-container');
+const MarkContainer = require('markdown-it-container');
 
-class Hightlight extends doczilla.Plugin {
+class Container extends doczilla.Plugin {
 
   constructor(options, doczilla) {
     super(options, doczilla);
@@ -10,7 +10,7 @@ class Hightlight extends doczilla.Plugin {
       const { containers } = event;
       containers.forEach(item => {
         const { name, marker, validate, render, open, close } = item;
-        md.use(CustomContainer, name, {
+        md.use(MarkContainer, name, {
           marker: marker,
           validate: validate || function (params) {
             const value = params.trim();
@@ -34,4 +34,4 @@ class Hightlight extends doczilla.Plugin {
 
 }
 
-module.exports = Hightlight;
+module.exports = Container;

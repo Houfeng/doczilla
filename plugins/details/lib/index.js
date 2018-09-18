@@ -1,5 +1,3 @@
-const CustomContainer = require('markdown-it-container');
-
 class Details extends doczilla.Plugin {
 
   constructor(options, doczilla) {
