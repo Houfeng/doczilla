@@ -1,0 +1,67 @@
+<div>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+          aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          <i class="icon fa fa-graduation-cap" aria-hidden="true"></i>
+          <!-- <img class="icon" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg"/> -->
+          <span class="name">{{docs.locale.title||'Doczilla'}}</span>
+        </a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <form class="navbar-form navbar-left">
+          <div class="form-group search">
+            <span class="separator"></span>
+            <input m:on:keydown="keywordKeyDown($event)" m:model="docs.keyword" type="text" class="form-control"
+              placeholder="{{docs.locale.search||'Search by keyword ...'}}">
+          </div>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <li m:each="item of docs.locale.links">
+            <a href="{{item.url}}">{{item.text}}</a>
+          </li>
+          <li class="dropdown locales">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+              {{docs.locale.text||''}} <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li m:each="item of docs.locales">
+                <a href="javascript:;" m:on:click="switchLang(item.name)">
+                  {{item.text}}
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+  <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-3 col-side">
+            <m:catalog />
+          </div>
+          <div class="col-md-9 col-main">
+            <m:router-view></m:router-view>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    Powered By Doczilla v{{pkg.version}}
+  </footer>
+</div>

@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/web/",
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "module": "commonjs",
+    "target": "es5",
+    "jsx": "react",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true,
+    "maxNodeModuleJsDepth": 4,
+    "lib": [
+      "dom",
+      "es2017"
+    ]
+  },
+  "include": [
+    "./src/**/*.js",
+    "./src/**/*.jsx"
+  ]
+}

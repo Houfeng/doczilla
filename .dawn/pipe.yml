@@ -1,0 +1,25 @@
+init:
+  - name: pkginfo
+
+dev:
+  - name: webpack
+    watch: true
+  - name: server
+    port: 7001
+
+build:
+  - name: clean
+  - name: webpack
+    common:
+      disabled: true
+    sourceMap: false
+    external: false
+
+test:
+  - name: lint
+  - name: unit
+
+publish:
+  - name: shell
+    script:
+      - tnpm pu

@@ -1,0 +1,15 @@
+
+Usage: doc <command> [options]
+
+Commands:
+  i, init         Initialize a Doczilla folder
+  b, build        Build current folder
+
+Options:
+  -c, --config    Specify config file
+  -v, --version   Display the current version of CLI
+  -h, --help      Display cli help information
+
+Examples:
+
+  doc -c ./doczilla.yml

@@ -1,0 +1,94 @@
+html,
+body {
+  background-color: #ececec;
+  font-family: "PingFang SC", "Lantinghei SC", "Helvetica Neue", "Helvetica", "Arial", "Microsoft YaHei", "STHeitiSC-Light", "simsun", "WenQuanYi Zen Hei", "WenQuanYi Micro Hei", "sans-serif";
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  border-radius: 0 !important;
+}
+
+.navbar-default {
+  background-color: #fff;
+  padding: 15px;
+  .search {
+    input {
+      border: none;
+      box-shadow: none;
+      padding: 3px;
+    }
+    .separator {
+      display: inline-block;
+      width: 1px;
+      height: 25px;
+      background: #ddd;
+      vertical-align: middle;
+      margin: 0 30px;
+    }
+  }
+  .navbar-collapse {
+    border: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: auto;
+    margin: auto 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-default {
+    .search {
+      .separator {
+        display: none;
+      }
+    }
+  }
+}
+
+.dropdown-menu>li>a {
+  display: block;
+  padding: 10px 20px;
+}
+
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:focus,
+.navbar-default .navbar-nav>.open>a:hover,
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>li>a:hover {
+  color: #108ee9;
+  background-color: transparent;
+}
+
+.navbar-brand {
+  height: 50px;
+  line-height: 50px;
+  padding: 0 15px;
+  .name,
+  .icon {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .icon {
+    width: 48px;
+    height: 48px;
+    font-size: 30px;
+    vertical-align: middle;
+    line-height: 48px;
+  }
+}
+
+.footer {
+  line-height: 2;
+  display: block;
+  padding: 15px;
+  background-color: #fff;
+  color: #aaa;
+}
