@@ -20,6 +20,9 @@ export class Article extends React.Component {
   async showArticle() {
     const { setLocation } = this.model;
     const { lang = '', gname = '', dname = '' } = this.props.match.params;
+    const updateKey = `${lang}/${gname}/${dname}`;
+    if (updateKey === this.updateKey) return;
+    this.updateKey = updateKey;
     await setLocation(lang, gname, dname);
     host.emit('showArticle', { lang, gname, dname, model: this.model });
   }
@@ -31,6 +34,7 @@ export class Article extends React.Component {
 
   componentDidUpdate() {
     this.showArticle();
+    this.handleLazyElements();
   }
 
   async handleLazyElements() {
