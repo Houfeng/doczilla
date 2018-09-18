@@ -1,4 +1,3 @@
-
 class Include extends doczilla.Plugin {
 
   constructor(options, doczilla) {
