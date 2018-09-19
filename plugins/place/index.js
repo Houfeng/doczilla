@@ -20,7 +20,8 @@ class Place extends doczilla.Plugin {
       const regexp = new RegExp(`${marker}\\s*${name}\\s+(.*)`, 'ig');
       let info;
       while (info = regexp.exec(doc[field])) {
-        const match = info[0], param = info[1];
+        if (!info || info.length < 2) return;
+        const match = info[0], param = info[1].replace(/<.+?>/g, '');
         const result = await render({ match, param, doc });
         doc[field] = doc[field].replace(match, result);
       }
