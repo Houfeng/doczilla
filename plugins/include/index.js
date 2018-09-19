@@ -9,7 +9,7 @@ class Include extends doczilla.Plugin {
 
   place(event) {
     event.places.push({
-      name: 'include',
+      name: 'include', mode: 'afterParse',
       render: this.render.bind(this)
     });
   }

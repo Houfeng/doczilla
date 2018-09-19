@@ -13,15 +13,16 @@ class Place extends doczilla.Plugin {
       item.mode = item.mode || 'beforeParse'
       return item.mode === mode;
     });
+    const field = mode === 'beforeParse' ? 'source' : 'result';
     for (let place of places) {
       const { name, render, marker = '::' } = place;
       if (!render) return;
       const regexp = new RegExp(`${marker}\\s*${name}\\s+(.*)`, 'ig');
       let info;
-      while (info = regexp.exec(doc.source)) {
+      while (info = regexp.exec(doc[field])) {
         const match = info[0], param = info[1];
         const result = await render({ match, param, doc });
-        doc.source = doc.source.replace(match, result);
+        doc[field] = doc[field].replace(match, result);
       }
     }
   }
