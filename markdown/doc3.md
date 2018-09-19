@@ -43,7 +43,7 @@ render() {
 ```
 :::
 
-::: details 展开
+::: details 展开示例 收起示例
 这是展开详情测试fffssss
 :::
 

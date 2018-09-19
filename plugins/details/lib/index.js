@@ -9,11 +9,13 @@ class Details extends doczilla.Plugin {
     event.containers.push({
       name: 'details',
       open(event) {
-        const summary = event.param || 'Details';
-        return `<details class="expand"><summary>${summary}</summary>\n`;
+        const text = (event.param || 'Details').split(' ');
+        const show = `<span class="state-open">${text[0]}</span>`;
+        const hide = `<span class="state-close">${text[1] || text[0]}</span>`;
+        return `<details><summary>${show}${hide}</summary>`;
       },
       close() {
-        return '</details>\n';
+        return '</details>';
       }
     });
   }
