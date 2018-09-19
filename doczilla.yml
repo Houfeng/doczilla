@@ -1,5 +1,8 @@
 output: ./docs
 
+plugins:
+  - '@ali/doczilla-plugin-props'
+
 locales:
   - name: zh
     text: 中文

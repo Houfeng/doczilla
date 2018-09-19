@@ -1,6 +1,6 @@
 {
   "name": "doczilla",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "",
   "main": "./lib/index.js",
   "bin": {
@@ -19,6 +19,7 @@
     "console3": "^1.0.4",
     "copy": "^0.3.0",
     "debug": "^3.0.0",
+    "eify": "^2.0.1",
     "font-awesome": "^4.7.0",
     "github-markdown-css": "^2.10.0",
     "globby": "^6.1.0",
