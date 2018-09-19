@@ -175,8 +175,8 @@ export class Layout extends React.Component {
       const doc = filtratedDocs[docs.hoverIndex] || filtratedDocs[0];
       if (!doc) return;
       this.model.hoverIndex = filtratedDocs.indexOf(doc);
-      this.go(`/${docs.lang}/${doc.group}/${doc.name}`)
-    } if (event.keyCode == 38) {
+      this.go(`/${docs.lang}/${doc.group}/${doc.name}`);
+    } else if (event.keyCode == 38) {
       event.preventDefault();
       event.keyCode = 0;
       const index = this.model.hoverIndex - 1;

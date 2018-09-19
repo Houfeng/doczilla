@@ -11,7 +11,7 @@ import './assets/common.less';
 function App() {
   return <Router>
     <Route path="/" component={Layout} />
-  </Router>
+  </Router>;
 }
 
 render(<App />, document.getElementById('root'), () => {

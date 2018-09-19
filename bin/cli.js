@@ -21,20 +21,32 @@ cmdline
   .error(onError)
 
   .root.command(['i', 'init'])
-  .action(async function () {
+  .option(['-p', '--path'], 'string')
+  .action(async function (path) {
     try {
-      const generator = new Generator('./');
+      const generator = new Generator(path);
       await generator.init();
     } catch (err) {
       onError(err);
     }
   }, false)
 
-  .root.command(['b', 'build'])
-  .option(['-c', '--config'], 'string')
-  .action(async function (config) {
+  .root.command(['d', 'dev'])
+  .option(['-p', '--path'], 'string')
+  .action(async function (path) {
     try {
-      const generator = new Generator(config || './');
+      const generator = new Generator(path);
+      await generator.dev();
+    } catch (err) {
+      onError(err);
+    }
+  }, false)
+
+  .root.command(['b', 'build'])
+  .option(['-p', '--path'], 'string')
+  .action(async function (path) {
+    try {
+      const generator = new Generator(path);
       await generator.build();
     } catch (err) {
       onError(err);

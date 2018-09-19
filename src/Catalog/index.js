@@ -1,8 +1,9 @@
 import React from 'react';
-import { model, watch } from 'mota';
+import { model } from 'mota';
 import docs from '../models/Docs';
 import './index.less';
 
+@model(docs)
 export class Catalog extends React.Component {
 
   go = (doc) => {
@@ -60,7 +61,7 @@ export class Catalog extends React.Component {
         <a className={`${active} ${hover}`} >
           {item.title}
         </a>
-      </li>
+      </li>;
     });
   }
 
@@ -77,14 +78,14 @@ export class Catalog extends React.Component {
           {this.renderSearchItems()}
         </ul>
       </li>
-    </ul>
+    </ul>;
   }
 
   render() {
     return <div className="catalog">
       {this.renderList()}
       {this.renderSearchList()}
-    </div>
+    </div>;
   }
 
 }

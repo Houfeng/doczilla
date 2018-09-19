@@ -2,14 +2,15 @@
 Usage: doc <command> [options]
 
 Commands:
-  i, init         Initialize a Doczilla folder
-  b, build        Build current folder
+  i, init         Initialize a Doczilla project
+  d, dev          Dev current project
+  b, build        Build current project
 
 Options:
-  -c, --config    Specify config file
+  -p, --path      Specify project path
   -v, --version   Display the current version of CLI
   -h, --help      Display cli help information
 
 Examples:
 
-  doc -c ./doczilla.yml
+  doc -p ./your-project-path

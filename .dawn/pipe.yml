@@ -20,6 +20,10 @@ test:
   - name: unit
 
 publish:
+  - name: call
+    pipe: 
+      - test
+      - build
   - name: shell
     script:
-      - tnpm pu
+      - npm pu

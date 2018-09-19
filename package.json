@@ -1,6 +1,6 @@
 {
   "name": "doczilla",
-  "version": "2.0.7",
+  "version": "2.1.0",
   "description": "",
   "main": "./lib/index.js",
   "bin": {
@@ -14,8 +14,11 @@
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "browser-sync": "^2.24.7",
+    "chokidar": "^2.0.4",
     "cmdline": "^2.0.2",
     "confman": "^0.2.6",
+    "connect-browser-sync": "^2.1.0",
     "console3": "^1.0.4",
     "copy": "^0.3.0",
     "debug": "^3.0.0",
@@ -29,7 +32,10 @@
     "markdown-it-container": "^2.0.0",
     "mkdirp": "^0.5.1",
     "mota": "^0.8.1",
+    "nokit-plugin-express": "^0.0.5",
+    "nokitjs": "^1.26.5",
     "ntils": "^4.0.4",
+    "oneport": "^1.0.2",
     "prismjs": "^1.8.3",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",

@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import sleep from '../common/sleep';
-import { model, watch } from 'mota';
+import { model } from 'mota';
 import { host } from '../common/host';
 import docs from '../models/Docs';
 import './index.less';
@@ -12,7 +12,7 @@ export class Article extends React.Component {
   render() {
     const { doc } = this.model;
     if (!doc) return <span>...</span>;
-    return <div className={`article markdown-body`}
+    return <div className={'article markdown-body'}
       dangerouslySetInnerHTML={{ __html: doc.result }} >
     </div>;
   }
