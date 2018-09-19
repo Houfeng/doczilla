@@ -1,0 +1,35 @@
+.icon-container {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: left;
+}
+.icon-body {
+  width: 180px;
+  height: 150px;
+  padding: 30px 10px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 10px;
+}
+.icon-body:hover {
+  cursor: pointer;
+  background: #eee;
+}
+.aps-icon {
+  font-size: 32px !important;
+  padding: 10px;
+  color: #666;
+}
+.icon-title {
+  font-size: 14px;
+}
+#icon-input-copy {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: -10;
+}

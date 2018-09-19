@@ -1,6 +1,8 @@
 output: ./docs
-
 port: 60008
+
+plugins:
+  - '@ali/doczilla-plugin-iconfont-list'
 
 locales:
   - name: zh
