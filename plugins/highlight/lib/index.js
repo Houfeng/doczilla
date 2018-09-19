@@ -13,6 +13,7 @@ class Hightlight extends doczilla.Plugin {
 
   highlight(source, lang) {
     if (lang == 'jsx') lang = 'js';
+    if (!Prism.languages[lang]) lang = 'markup';
     const result = Prism.highlight(source, Prism.languages[lang], lang);
     const event = { result, source, lang };
     doczilla.emit('highlight', event);
