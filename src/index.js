@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom';
 import { Router, Route } from './common/router';
 import { Layout } from './Layout';
 import { host } from './common/host';
@@ -14,6 +14,9 @@ function App() {
   </Router>;
 }
 
-render(<App />, document.getElementById('root'), () => {
+ReactDOM.render(<App />, document.getElementById('root'), () => {
   host.emit('start');
 });
+
+window.React = React;
+window.ReactDOM = ReactDOM;

@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 
 class Include extends doczilla.Plugin {
 
@@ -9,17 +10,24 @@ class Include extends doczilla.Plugin {
 
   place(event) {
     event.places.push({
-      name: 'include', mode: 'afterParse',
+      name: 'include',
       render: this.render.bind(this)
     });
   }
 
-  render(opts) {
+  async render(opts) {
     const { param, doc } = opts;
     const { root, filename } = doc;
     const mdFile = path.resolve(root, filename);
     const includeFile = path.resolve(path.dirname(mdFile), param);
-    return includeFile;
+    if (!fs.existsSync(includeFile)) {
+      const message = `Cannt find: ${includeFile}`;
+      doczilla.error(message);
+      return message;
+    }
+    const source = await doczilla.utils.readFile(includeFile);
+    const includeDoc = await doczilla.parseSource(source, includeFile);
+    return includeDoc.result;
   }
 
 }

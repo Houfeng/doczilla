@@ -11,7 +11,7 @@ import pkg from '../../package.json';
 export class Layout extends React.Component {
 
   renderHeader() {
-    const { locale } = this.model;
+    const locale = this.model.locale || {};
     return <div className="navbar-header">
       <button type="button" className="navbar-toggle collapsed"
         data-toggle="collapse"
@@ -154,6 +154,7 @@ export class Layout extends React.Component {
   @watch(m => m.doc, true)
   updatePageTitle() {
     const { doc, locale } = this.model;
+    if (!doc || !locale) return;
     document.title = `${doc.title} - ${locale.title}`;
   }
 

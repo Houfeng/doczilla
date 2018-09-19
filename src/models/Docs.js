@@ -24,8 +24,8 @@ export class Docs {
 
   constructor() {
     this.data = window.DOC_DATA || {};
-    this.locales = this.data.locales;
-    this.assets = this.data.assets;
+    this.locales = this.data.locales || [];
+    this.assets = this.data.assets || {};
   }
 
   get filtratedDocs() {
@@ -50,10 +50,12 @@ export class Docs {
     if (!this.locales) return;
     this.locale = this.locales.find(item => item.name == this.lang) ||
       this.locales[0];
+    if (!this.locale) return;
     this.links = this.locale.links;
     this.groups = this.locale.groups;
     this.group = this.groups.find(item => item.name == this.gname) ||
       this.groups[0];
+    if (!this.group) return;
     this.docs = this.group.docs;
     this.doc = this.docs.find(item => item.name == this.dname) ||
       this.docs[0] || {};

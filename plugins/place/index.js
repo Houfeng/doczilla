@@ -21,7 +21,7 @@ class Place extends doczilla.Plugin {
       let info;
       while (info = regexp.exec(doc[field])) {
         if (!info || info.length < 2) return;
-        const match = info[0], param = info[1].replace(/<.+?>/g, '');
+        const match = info[0], param = info[1].trim().replace(/<.+?>/g, '');
         const result = await render({ match, param, doc });
         doc[field] = doc[field].replace(match, result);
       }

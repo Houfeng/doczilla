@@ -47,6 +47,4 @@ render() {
 这是展开详情测试fffssss
 :::
 
-:: include ./xxxx 
-
-:: include ./yyyy
+:: include ./test.md
