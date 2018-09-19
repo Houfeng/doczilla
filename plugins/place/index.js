@@ -2,13 +2,17 @@ class Place extends doczilla.Plugin {
 
   constructor(options, doczilla) {
     super(options, doczilla);
-    doczilla.on('beforeParse', this.beforeParse.bind(this));
+    doczilla.on('beforeParse', this.handle.bind(this, 'beforeParse'));
+    doczilla.on('afterParse', this.handle.bind(this, 'afterParse'));
   }
 
-  async beforeParse(doc) {
+  async handle(mode, doc) {
     const event = { places: [] };
-    doczilla.emit('place', event);
-    const { places } = event;
+    await doczilla.emitAsync('place', event);
+    const places = event.places.filter(item => {
+      item.mode = item.mode || 'beforeParse'
+      return item.mode === mode;
+    });
     for (let place of places) {
       const { name, render, marker = '::' } = place;
       if (!render) return;
