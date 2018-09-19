@@ -10,6 +10,7 @@ dev:
 build:
   - name: clean
   - name: webpack
+    env: production
     common:
       disabled: true
     sourceMap: false
