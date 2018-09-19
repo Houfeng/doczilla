@@ -24,6 +24,7 @@ publish:
     pipe: 
       - test
       - build
+  - name: autoversion
   - name: shell
     script:
       - npm pu

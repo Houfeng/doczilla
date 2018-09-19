@@ -7,7 +7,7 @@ index: 0
 
 # 文档三
 
-你好中国
+你好中国，你好中国
 
 ```js
 import { Popover } from '@ali/aps';
@@ -44,7 +44,9 @@ render() {
 :::
 
 ::: details 展开示例 收起示例
-这是展开详情测试fffssss
+```js
+console.log('你好中国');
+```
 :::
 
 :: include ./test.md
