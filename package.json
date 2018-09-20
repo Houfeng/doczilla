@@ -1,6 +1,6 @@
 {
   "name": "doczilla",
-  "version": "2.2.1-18995478",
+  "version": "2.2.1-19005119",
   "description": "",
   "main": "./lib/index.js",
   "bin": {
