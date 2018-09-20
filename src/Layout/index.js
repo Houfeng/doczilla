@@ -5,6 +5,7 @@ import docs from '../models/Docs';
 import { Article } from '../Article';
 import { Catalog } from '../Catalog';
 import pkg from '../../package.json';
+import './index.less';
 
 @model(docs)
 @binding
