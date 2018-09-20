@@ -50,3 +50,5 @@ console.log('你好中国');
 :::
 
 :: include ./test.md
+
+:: include ./test.html
