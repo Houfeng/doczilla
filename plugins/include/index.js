@@ -18,16 +18,17 @@ class Include extends doczilla.Plugin {
   async render(opts) {
     const { param, doc } = opts;
     const { root, filename } = doc;
-    const mdFile = path.resolve(root, filename);
-    const includeFile = path.resolve(path.dirname(mdFile), param);
-    if (!fs.existsSync(includeFile)) {
-      const message = `Cannt find: ${includeFile}`;
+    const mainFile = path.resolve(root, filename);
+    const subFile = path.resolve(path.dirname(mainFile), param);
+    if (!fs.existsSync(subFile)) {
+      const message = `Cannt find: ${subFile}`;
       doczilla.error(message);
       return message;
     }
-    const source = await doczilla.utils.readFile(includeFile);
-    const includeDoc = await doczilla.parseSource(source, includeFile);
-    return includeDoc.result;
+    const subSource = await doczilla.utils.readFile(subFile);
+    const subDoc = await doczilla.parseSource(subSource, subFile);
+    doczilla.addDependents(subFile, mainFile);
+    return subDoc.result;
   }
 
 }
