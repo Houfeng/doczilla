@@ -115,30 +115,9 @@ export class Layout extends React.Component {
     </footer>;
   }
 
-  renderStyles() {
-    const { styles = [] } = this.model.assets;
-    return styles.map(url => (
-      <link key={url} href={url} rel="stylesheet" />
-    ));
-  }
-
-  loadScripts() {
-    const { scripts = [] } = this.model.assets;
-    scripts.forEach(url => {
-      const script = document.createElement('script');
-      script.src = url;
-      document.body.appendChild(script);
-    });
-  }
-
-  componentDidMount() {
-    this.loadScripts();
-  }
-
   render() {
     return <Router>
       <div>
-        {this.renderStyles()}
         <nav className="navbar navbar-default">
           <div className="container-fluid">
             {this.renderHeader()}
