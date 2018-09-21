@@ -24,6 +24,7 @@ export class Article extends React.Component {
     if (updateKey === this.updateKey) return;
     this.updateKey = updateKey;
     await setLocation(lang, gname, dname);
+    await sleep(0);
     host.emit('showArticle', { lang, gname, dname, model: this.model });
   }
 
@@ -38,7 +39,7 @@ export class Article extends React.Component {
   }
 
   async handleLazyElements() {
-    await sleep(300);
+    await sleep(100);
     let lazyElements = $('[x-src],[data-src]');
     lazyElements.each(function () {
       let element = $(this);

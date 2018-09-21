@@ -8,6 +8,13 @@ class Host extends EventEmitter {
     global[pkg.name] = this;
   }
 
+  getPlugin = (name) => {
+    const plugins = this.getPlugins();
+    return plugins && plugins.find(item => item.name === name);
+  }
+
+  getPlugins = () => window.DOC_DATA && window.DOC_DATA.plugins;
+
 }
 
 export const host = new Host();
