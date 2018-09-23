@@ -5,14 +5,14 @@ class Card extends doczilla.Plugin {
     doczilla.on('container', this.container.bind(this));
   }
 
-  container(event) {
-    event.containers.push({
+  container(event) {  
+    event.containers.push({ 
       name: 'card',
       open(event) {
         let percent = Number(event.param);
         if (percent > 100 || percent < 0) percent = 100;
         return `<div class="card" style="width:${percent}%;">
-        <div class="inner">`;
+        <div class="inner">`; 
       },
       close() {
         return '</div></div>';

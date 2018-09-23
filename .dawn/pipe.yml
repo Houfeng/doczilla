@@ -1,20 +1,40 @@
 init:
   - name: pkginfo
 
+webpack: &webpack
+  env: production
+  common:
+    disabled: true
+  sourceMap: false
+  external: false
+
 dev:
   - name: webpack
+    entry: ./src/index.js
     watch: true
   - name: server
     port: 7001
 
 build:
+  - name: call
+    pipe: test
   - name: clean
   - name: webpack
-    env: production
-    common:
-      disabled: true
-    sourceMap: false
-    external: false
+    <<: *webpack
+    entry: ./src/index.js
+    output: ./build/web
+    folders:
+      js: ./assets/js
+      css: ./assets/css
+      font: ./assets/font
+  - name: webpack
+    <<: *webpack
+    entry: ./src/App.js
+    output: ./build/renderer
+    folders:
+      js: ./
+      css: ./
+    template: none
 
 test:
   - name: lint
@@ -22,9 +42,7 @@ test:
 
 publish:
   - name: call
-    pipe: 
-      - test
-      - build
+    pipe: build
   - name: autoversion
   - name: shell
     script:

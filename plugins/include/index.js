@@ -17,7 +17,7 @@ class Include extends doczilla.Plugin {
 
   async render(opts) {
     const { param, doc } = opts;
-    const { root, filename } = doc;
+    const { root, filename } = doc; 
     const mainFile = path.resolve(root, filename);
     const subFile = path.resolve(path.dirname(mainFile), param);
     if (!fs.existsSync(subFile)) {
