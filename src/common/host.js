@@ -1,4 +1,4 @@
-import EventEmitter from 'events';
+import EventEmitter from 'eify';
 import pkg from '../../package.json';
 
 class Host extends EventEmitter {
@@ -13,7 +13,7 @@ class Host extends EventEmitter {
     return plugins && plugins.find(item => item.name === name);
   }
 
-  getPlugins = () => window.DOC_DATA && window.DOC_DATA.plugins;
+  getPlugins = () => global.DOC_DATA && global.DOC_DATA.plugins;
 
 }
 

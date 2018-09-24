@@ -9,6 +9,9 @@ webpack: &webpack
   external: false
 
 dev:
+  - name: copy
+    files:
+      ./build/data.js: ./docs/data.js
   - name: webpack
     entry: ./src/index.js
     watch: true
@@ -24,9 +27,9 @@ build:
     entry: ./src/index.js
     output: ./build/web
     folders:
-      js: ./assets/js
-      css: ./assets/css
-      font: ./assets/font
+      js: ./assets
+      css: ./assets
+      font: ./assets
   - name: webpack
     <<: *webpack
     entry: ./src/App.js
@@ -35,7 +38,11 @@ build:
       js: ./
       css: ./
     template: none
-
+    umd:
+      library: '[name]'
+      libraryTarget: 'umd'
+      umdNamedDefine: true
+      
 test:
   - name: lint
   - name: unit

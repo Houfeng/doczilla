@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from '../common/router';
 import { model } from 'mota';
 import docs from '../models/Docs';
 import './index.less';
@@ -6,26 +7,15 @@ import './index.less';
 @model(docs)
 export class Catalog extends React.Component {
 
-  go = (doc) => {
-    const { locale, docs, filtratedDocs } = this.model;
-    if (this.model.keyword) {
-      this.model.hoverIndex = filtratedDocs.indexOf(doc);
-    } else {
-      this.model.hoverIndex = docs.indexOf(doc);
-    }
-    const path = `/${locale.name}/${doc.group}/${doc.name}`;
-    const { history } = this.props;
-    history.push(path);
-  }
-
   renderDocs(group) {
-    const { doc } = this.model;
+    const { locale, doc } = this.model;
     return group.docs.map(item => {
       return <li className="doc-item" key={item.name}>
-        <a className={item.name == doc.name ? 'active' : ''}
-          onClick={() => this.go(item)}>
+        <Link key={item.name}
+          className={item.name == doc.name ? 'active' : ''}
+          to={`/${locale.name}/${item.group}/${item.name}`}>
           {item.title}
-        </a>
+        </Link>
       </li>;
     });
   }
@@ -47,20 +37,21 @@ export class Catalog extends React.Component {
   renderList() {
     const { keyword } = this.model;
     if (keyword) return;
-    return <ul className="group">
+    return <ul className="group" key="list">
       {this.renderGroups()}
     </ul>;
   }
 
   renderSearchItems() {
-    const { filtratedDocs, doc, hoverIndex } = this.model;
+    const { filtratedDocs, locale, doc, hoverIndex } = this.model;
     return filtratedDocs.map((item, index) => {
       const active = item.name == doc.name ? 'active' : '';
       const hover = hoverIndex == index ? 'hover' : '';
       return <li className="doc-item" key={item.name}>
-        <a className={`${active} ${hover}`} >
+        <Link className={`${active} ${hover} `}
+          to={`/${locale.name}/${item.group}/${item.name}`}>
           {item.title}
-        </a>
+        </Link>
       </li>;
     });
   }
@@ -68,7 +59,7 @@ export class Catalog extends React.Component {
   renderSearchList() {
     const { keyword } = this.model;
     if (!keyword) return;
-    return <ul className="group">
+    return <ul className="group" key="search-list">
       <li className="group-item">
         <a>
           <i className="fa fa-search" aria-hidden="true"></i>

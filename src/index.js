@@ -8,8 +8,8 @@ import 'font-awesome/css/font-awesome.css';
 import 'github-markdown-css/github-markdown.css';
 import './assets/common.less';
 
-window.React = React;
-window.ReactDOM = ReactDOM;
+global.React = React;
+global.ReactDOM = ReactDOM;
 const root = document.getElementById('root');
 
 ReactDOM.render(<App />, root, () => host.emit('start'));

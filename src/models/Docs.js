@@ -23,7 +23,7 @@ export class Docs {
   hoverIndex = 0;
 
   constructor() {
-    this.data = window.DOC_DATA || {};
+    this.data = global.DOC_DATA || {};
     this.locales = this.data.locales || [];
     this.assets = this.data.assets || {};
   }
@@ -43,10 +43,20 @@ export class Docs {
     return result;
   }
 
+  getBaseInfo = () => {
+    if (!global.document) return {};
+    const baseElement = document.getElementsByTagName('base')[0];
+    if (!baseElement) return {};
+    const routeInfo = baseElement.getAttribute('route');
+    if (!routeInfo) return {};
+    return JSON.parse(decodeURIComponent(routeInfo));
+  }
+
   setLocation = (lang, gname, dname) => {
-    this.lang = lang || '';
-    this.gname = gname || '';
-    this.dname = dname || '';
+    const baseInfo = this.getBaseInfo();
+    this.lang = lang || baseInfo.locale || '';
+    this.gname = gname || baseInfo.group || '';
+    this.dname = (dname || baseInfo.doc || '').split('.')[0];
     if (!this.locales) return;
     this.locale = this.locales.find(item => item.name == this.lang) ||
       this.locales[0];

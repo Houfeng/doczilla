@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <base href="../../" route="%7B%22locale%22%3A%22zh%22%2C%22group%22%3A%22components%22%2C%22doc%22%3A%22popover%22%7D" />
+<link href="./assets/index.css" rel="stylesheet"><link href="./plugins/doczilla-card/index.css" rel="stylesheet" /><link href="./plugins/doczilla-details/index.css" rel="stylesheet" /><link href="./plugins/doczilla-highlight/index.css" rel="stylesheet" /></head>
+
+<body>
+  <div id="root"><div data-reactroot=""><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="./"><i class="icon fa fa-graduation-cap" aria-hidden="true"></i><span class="name">测试文档</span></a></div><div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"><form class="navbar-form navbar-left"><div class="form-group search"><span class="separator"></span><input type="text" class="form-control" placeholder="Search by keyword ..." value=""/></div></form><ul class="nav navbar-nav navbar-right"><li><a href="./test-url">测试链接</a></li><li class="dropdown locales"><a class="dropdown-toggle" data-toggle="dropdown" role="button">中文<!-- --> <span class="caret"></span></a><ul class="dropdown-menu"><li><a href="zh/components/popover.html">中文</a></li></ul></li></ul></div></div></nav><div class="container"><div class="panel panel-default"><div class="panel-body"><div class="row"><div class="col-md-3 col-side"><div class="catalog"><ul class="group"><li class="group-item"><a><i class="fa fa-th-large" aria-hidden="true"></i>组件说明</a><ul class="doc"><li class="doc-item"><a class="" href="zh/components/alert.html">Alert</a></li><li class="doc-item"><a class="" href="zh/components/overlay.html">Overlay</a></li><li class="doc-item"><a class="active" href="zh/components/popover.html">Popover</a></li></ul></li></ul></div></div><div class="col-md-9 col-main"><div class="article markdown-body"><h1>Popover</h1>
+<h2>简介</h2>
+<p>Popover 是一个「弹出内容组件」，可以停靠在窗口指定的边缘或窗口中间，也可以「跟随」指定元素，还可以指定是否开始「遮罩」。</p>
+<h2>使用</h2>
+<pre><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Popover <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@ali/aps'</span><span class="token punctuation">;</span>
+<span class="token operator">...</span>
+<span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token operator">&lt;</span>div<span class="token operator">></span>
+    <span class="token operator">&lt;</span>Popover 
+      overlay<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span> 
+      visible<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>visible<span class="token punctuation">}</span> 
+      dock<span class="token operator">=</span><span class="token string">"center"</span>
+      follow<span class="token operator">=</span><span class="token string">"rigth"</span>
+      autoClose<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token operator">...</span>
+</code></pre>
+<h2>示例</h2>
+<h1>Input</h1>
+<h2>简介</h2>
+<p>输入框组件，通过键盘输入内容</p>
+<h2>使用</h2>
+<pre><code class="language-js"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Input<span class="token punctuation">,</span> Icon<span class="token punctuation">,</span> common <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@ali/aps'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  state <span class="token operator">=</span> <span class="token punctuation">{</span> 
+    value<span class="token punctuation">:</span> <span class="token string">''</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token function-variable function">handleChange</span> <span class="token operator">=</span> e <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> 
+      value<span class="token punctuation">:</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value 
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token operator">&lt;</span>div<span class="token operator">></span>
+      <span class="token operator">&lt;</span>h3<span class="token operator">></span>基本使用<span class="token operator">&lt;</span><span class="token operator">/</span>h3<span class="token operator">></span>
+      <span class="token operator">&lt;</span>p<span class="token operator">></span>
+        <span class="token operator">&lt;</span>Input placeholder<span class="token operator">=</span><span class="token string">"基本使用"</span> value<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>value<span class="token punctuation">}</span> onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>handleChange<span class="token punctuation">}</span><span class="token operator">/</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+      <span class="token operator">&lt;</span>p<span class="token operator">></span>
+        <span class="token operator">&lt;</span>Input disabled<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span> placeholder<span class="token operator">=</span><span class="token string">"不可用"</span><span class="token operator">/</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+      <span class="token operator">&lt;</span>p<span class="token operator">></span>
+        <span class="token operator">&lt;</span>Input readOnly<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span> defaultValue<span class="token operator">=</span><span class="token string">"只读"</span><span class="token operator">/</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+      <span class="token operator">&lt;</span>h3<span class="token operator">></span>大小<span class="token operator">&lt;</span><span class="token operator">/</span>h3<span class="token operator">></span>
+      <span class="token operator">&lt;</span>p<span class="token operator">></span>
+        <span class="token operator">&lt;</span>Input size<span class="token operator">=</span><span class="token string">"small"</span> placeholder<span class="token operator">=</span><span class="token string">"小"</span><span class="token operator">/</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+      <span class="token operator">&lt;</span>p<span class="token operator">></span>
+        <span class="token operator">&lt;</span>Input size<span class="token operator">=</span><span class="token string">"medium"</span> placeholder<span class="token operator">=</span><span class="token string">"默认"</span><span class="token operator">/</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+      <span class="token operator">&lt;</span>p<span class="token operator">></span>
+        <span class="token operator">&lt;</span>Input size<span class="token operator">=</span><span class="token string">"large"</span> placeholder<span class="token operator">=</span><span class="token string">"大"</span><span class="token operator">/</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+      <span class="token operator">&lt;</span>h3<span class="token operator">></span>图标<span class="token operator">&lt;</span><span class="token operator">/</span>h3<span class="token operator">></span>
+      <span class="token operator">&lt;</span>p<span class="token operator">></span>
+        <span class="token operator">&lt;</span>Input prefix<span class="token operator">=</span><span class="token punctuation">{</span><span class="token operator">&lt;</span>Icon type<span class="token operator">=</span><span class="token string">"search"</span> <span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">}</span> placeholder<span class="token operator">=</span><span class="token string">"前缀图标"</span> <span class="token operator">/</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+      <span class="token operator">&lt;</span>p<span class="token operator">></span>
+        <span class="token operator">&lt;</span>Input suffix<span class="token operator">=</span><span class="token punctuation">{</span><span class="token operator">&lt;</span>Icon type<span class="token operator">=</span><span class="token string">"search"</span> <span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">}</span> placeholder<span class="token operator">=</span><span class="token string">"后缀图标"</span> <span class="token operator">/</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+      <span class="token operator">&lt;</span>h3<span class="token operator">></span>多行模式<span class="token operator">&lt;</span><span class="token operator">/</span>h3<span class="token operator">></span>
+      <span class="token operator">&lt;</span>p<span class="token operator">></span>
+        <span class="token operator">&lt;</span>Input placeholder<span class="token operator">=</span><span class="token string">"多行模式"</span> multiple rows<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">3</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+common<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token operator">&lt;</span>App <span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">,</span> mountNode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2>API</h2>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>类型</th>
+<th>可选值</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>input类型，意义和原生input一样</td>
+<td>string</td>
+<td>'text', 'number', 'password'</td>
+<td>'text'</td>
+</tr>
+<tr>
+<td>size</td>
+<td>尺寸</td>
+<td>string</td>
+<td>'small', 'medium', 'large'</td>
+<td>'medium'</td>
+</tr>
+<tr>
+<td>value</td>
+<td>内容</td>
+<td>string/number</td>
+<td>any</td>
+<td>-</td>
+</tr>
+<tr>
+<td>defaultValue</td>
+<td>默认内容</td>
+<td>string/number</td>
+<td>any</td>
+<td>-</td>
+</tr>
+<tr>
+<td>onPressEnter</td>
+<td>输入回车时的回调</td>
+<td>function(e)</td>
+<td>any</td>
+<td>-</td>
+</tr>
+<tr>
+<td>disabled</td>
+<td>是否禁用</td>
+<td>boolean</td>
+<td>true, false</td>
+<td>false</td>
+</tr>
+<tr>
+<td>readOnly</td>
+<td>是否只读</td>
+<td>boolean</td>
+<td>true, false</td>
+<td>false</td>
+</tr>
+<tr>
+<td>prefix</td>
+<td>前缀图标</td>
+<td>ReactNode</td>
+<td>any</td>
+<td>-</td>
+</tr>
+<tr>
+<td>suffix</td>
+<td>后缀图标</td>
+<td>ReactNode</td>
+<td>any</td>
+<td>-</td>
+</tr>
+<tr>
+<td>multiple</td>
+<td>多行模式</td>
+<td>boolean</td>
+<td>true, false</td>
+<td>false</td>
+</tr>
+<tr>
+<td>rows</td>
+<td>多行模式可见行数</td>
+<td>number</td>
+<td>any</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h2>示例</h2>
+<iframe x-src="https://riddle.alibaba-inc.com/riddles/bb6db52f/iframe" height="360" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%; border: 1px solid #e9e9e9;"></iframe></div></div></div></div></div></div><footer class="footer">Powered By <!-- -->doczilla<!-- --> v<!-- -->2.3.0-19028624</footer></div></div>
+  <script src="./data.js"></script>
+<script type="text/javascript" src="./assets/index.js"></script><script src="./plugins/doczilla-highlight/index.js"></script></body>
+
+</html>

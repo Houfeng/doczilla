@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, Switch } from '../common/router';
+import { Link, go } from '../common/router';
 import { model, watch, binding } from 'mota';
 import docs from '../models/Docs';
 import { Article } from '../Article';
@@ -23,10 +23,10 @@ export class Layout extends React.Component {
         <span className="icon-bar"></span>
         <span className="icon-bar"></span>
       </button>
-      <a className="navbar-brand" href="#">
+      <Link className="navbar-brand" to="/">
         <i className="icon fa fa-graduation-cap" aria-hidden="true"></i>
         <span className="name">{locale.title || 'Doczilla'}</span>
-      </a>
+      </Link>
     </div>;
   }
 
@@ -52,32 +52,31 @@ export class Layout extends React.Component {
   }
 
   renderLocales() {
-    const { locales = [] } = this.model;
+    const { locales = [], lang, group, doc } = this.model;
     return locales.map(item => (
       <li key={item.name}>
-        <a href="javascript:;" onClick={() => this.switchLang(item.name)}>
+        <Link to={`/${lang}/${group.name}/${doc.name}`}>
           {item.text}
-        </a>
+        </Link>
       </li>
     ));
   }
 
   renderCollapse() {
-    const { locale } = this.model;
-    if (!locale) return;
+    const { locale = {} } = this.model;
     return <div className="collapse navbar-collapse"
       id="bs-example-navbar-collapse-1">
       {this.renderSearch()}
       <ul className="nav navbar-nav navbar-right">
         {this.renderLinks()}
-        <li className="dropdown locales">
-          <a href="javascript:;"
+        <li className="dropdown locales" key={locale.name}>
+          <a key={locale.name}
             className="dropdown-toggle"
             data-toggle="dropdown"
             role="button">
             {locale.text || ''} <span className="caret"></span>
           </a>
-          <ul className="dropdown-menu">
+          <ul className="dropdown-menu" key="locales-menu">
             {this.renderLocales()}
           </ul>
         </li>
@@ -91,17 +90,10 @@ export class Layout extends React.Component {
         <div className="panel-body">
           <div className="row">
             <div className="col-md-3 col-side">
-              <Switch>
-                <Route path="/" component={Catalog} />
-              </Switch>
+              <Catalog {...this.model} />
             </div>
             <div className="col-md-9 col-main">
-              <Switch>
-                <Route path="/:lang/:gname/:dname" component={Article} />
-                <Route path="/:lang/:gname" component={Article} />
-                <Route path="/:lang" component={Article} />
-                <Route path="/" component={Article} />
-              </Switch>
+              <Article {...this.model} />
             </div>
           </div>
         </div>
@@ -111,41 +103,52 @@ export class Layout extends React.Component {
 
   renderFooter() {
     return <footer className="footer">
-      Powered By Doczilla v{pkg.version}
+      Powered By {pkg.name} v{pkg.version}
     </footer>;
   }
 
   render() {
-    return <Router>
-      <div>
-        <nav className="navbar navbar-default">
-          <div className="container-fluid">
-            {this.renderHeader()}
-            {this.renderCollapse()}
-          </div>
-        </nav >
-        {this.renderContainer()}
-        {this.renderFooter()}
-      </div >
-    </Router>;
+    return <div>
+      <nav className="navbar navbar-default">
+        <div className="container-fluid">
+          {this.renderHeader()}
+          {this.renderCollapse()}
+        </div>
+      </nav >
+      {this.renderContainer()}
+      {this.renderFooter()}
+    </div >;
+  }
+
+  async showArticle() {
+    const { setLocation } = this.model;
+    const { lang = '', gname = '', dname = '' } = this.props.match.params;
+    const updateKey = `${lang}/${gname}/${dname}`;
+    if (updateKey === this.updateKey) return;
+    this.updateKey = updateKey;
+    await setLocation(lang, gname, dname);
+  }
+
+  UNSAFE_componentWillMount() {
+    this.showArticle();
+  }
+
+  componentDidUpdate() {
+    this.showArticle();
   }
 
 
   @watch(m => m.doc, true)
   updatePageTitle() {
     const { doc, locale } = this.model;
-    if (!doc || !locale) return;
+    if (!doc || !locale || !global.document) return;
     document.title = `${doc.title} - ${locale.title}`;
   }
 
-  switchLang = (lang) => {
-    const { group, doc } = this.model;
-    this.go(`/${lang}/${group.name}/${doc.name}`);
-  }
-
-  go = (path) => {
+  go(to) {
+    if (go) return go(to);
     const { history } = this.props;
-    history.push(path);
+    history.push(to);
   }
 
   onKeywordKeyDown = (event) => {
