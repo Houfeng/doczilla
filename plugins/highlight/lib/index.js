@@ -1,4 +1,7 @@
 const Prism = require('prismjs');
+const loadLanguages = require('prismjs/components/');
+
+loadLanguages(require('./languages.json'));
 
 class Hightlight extends doczilla.Plugin {
 

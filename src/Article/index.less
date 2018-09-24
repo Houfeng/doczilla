@@ -1,16 +1,17 @@
-.article {
+.article.markdown-body {
   line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
   pre {
     border: 0;
   }
-  transition: .25s;
-  transform: translateZ(0);
   iframe {
     border: solid 1px #f5f5f5;
     width: 100%;
   }
-  transition: .5s;
-  &.markdown-body table {
+  table {
     display: table;
+  }
+  code {
+    -webkit-font-smoothing: initial;
   }
 }
