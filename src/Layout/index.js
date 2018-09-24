@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, go } from '../common/router';
-import { model, watch, binding } from 'mota';
+import { model, binding } from 'mota';
 import docs from '../models/Docs';
 import { Article } from '../Article';
 import { Catalog } from '../Catalog';
@@ -120,7 +120,7 @@ export class Layout extends React.Component {
     </div >;
   }
 
-  async showArticle() {
+  async showDoc() {
     const { setLocation } = this.model;
     const { lang = '', gname = '', dname = '' } = this.props.match.params;
     const updateKey = `${lang}/${gname}/${dname}`;
@@ -130,19 +130,11 @@ export class Layout extends React.Component {
   }
 
   UNSAFE_componentWillMount() {
-    this.showArticle();
+    this.showDoc();
   }
 
   componentDidUpdate() {
-    this.showArticle();
-  }
-
-
-  @watch(m => m.doc, true)
-  updatePageTitle() {
-    const { doc, locale } = this.model;
-    if (!doc || !locale || !global.document) return;
-    document.title = `${doc.title} - ${locale.title}`;
+    this.showDoc();
   }
 
   go(to) {

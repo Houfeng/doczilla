@@ -1,11 +1,10 @@
 import React from 'react';
-import $ from 'jquery';
 import { model } from 'mota';
 import { host } from '../common/host';
 import docs from '../models/Docs';
 import './index.less';
 
-const UPDATE_DELAY = 200;
+const SHOW_DELAY = 300;
 
 @model(docs)
 export class Article extends React.Component {
@@ -13,39 +12,33 @@ export class Article extends React.Component {
   render() {
     const { doc } = this.props;
     if (!doc) return <span>...</span>;
+    this.setPageTitle();
     return <div className={'article markdown-body'}
       dangerouslySetInnerHTML={{ __html: doc.result }} >
     </div>;
   }
 
   componentDidMount() {
-    this.onUpdate();
+    this.onShow();
   }
 
   componentDidUpdate() {
-    this.onUpdate();
+    this.onShow();
   }
 
-  async onUpdate() {
+  async onShow() {
     if (this.updateTimer) clearTimeout(this.updateTimer);
     this.updateTimer = setTimeout(() => {
-      if (!this.updateTimer) return;
-      console.log('event', 'showArticle');
-      host.emit('showArticle', { model: this.model });
-      this.handleLazyElements();
-    }, UPDATE_DELAY);
+      const event = { model: this.model };
+      host.emit('showDoc', event);
+      host.emit('showArticle', event);
+    }, SHOW_DELAY);
   }
 
-  async handleLazyElements() {
-    let lazyElements = $('[x-src],[data-src]');
-    lazyElements.each(function () {
-      let element = $(this);
-      element.on('load', () => {
-        element.addClass('loaded');
-      });
-      let src = element.attr('x-src') || element.attr('data-src');
-      element.attr('src', src);
-    });
+  setPageTitle() {
+    const { doc, locale } = this.model;
+    if (!doc || !locale || !global.document) return;
+    document.title = `${doc.title} - ${locale.title}`;
   }
 
 }
