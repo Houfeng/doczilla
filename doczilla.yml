@@ -1,4 +1,4 @@
-port: 9002
+port: 9527
 output: ./docs
 
 mode: static
@@ -6,15 +6,15 @@ mode: static
 locales:
   - name: zh
     text: 中文
-    title: 测试文档
+    title: Doczilla 
     links:
       - text: GitHub
         url: https://github.com/Houfeng/doczilla
     groups:
       - name: guide
         text: 入门
-      - name: configuration
-        text: 定制
+      - name: plugin
+        text: 插件
         
     docs:
       - ./**/*.md
