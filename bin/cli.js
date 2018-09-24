@@ -37,7 +37,8 @@ cmdline
   .option(['-p', '--path'], 'string')
   .action(async function (path) {
     try {
-      const generator = new Generator(path);
+      const generator = new Generator(path, 'dev');
+      await generator.clean();
       await generator.dev();
     } catch (err) {
       onError(err);
@@ -49,6 +50,7 @@ cmdline
   .action(async function (path) {
     try {
       const generator = new Generator(path);
+      await generator.clean();
       await generator.build();
     } catch (err) {
       onError(err);

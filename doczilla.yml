@@ -8,11 +8,14 @@ locales:
     text: 中文
     title: 测试文档
     links:
-      - text: 测试链接
-        url: ./test-url
+      - text: GitHub
+        url: https://github.com/Houfeng/doczilla
     groups:
-      - name: components
-        text: 组件说明
+      - name: guide
+        text: 入门
+      - name: configuration
+        text: 定制
+        
     docs:
       - ./**/*.md
       - '!./node_modules/**/*.md'
