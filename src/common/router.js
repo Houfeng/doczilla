@@ -50,7 +50,7 @@ const Link = {
   },
 }[routeConf.mode] || rd.Link;
 
-const go = rd.mode === 'static' ? (to) => {
+const go = routeConf.mode === 'static' ? (to) => {
   const { extname } = routeConf;
   const href = normalize(`./${to}${to != '/' ? extname : ''}`);
   location.href = href;

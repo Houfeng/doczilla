@@ -1,12 +1,11 @@
 import React from 'react';
 import $ from 'jquery';
-import sleep from '../common/sleep';
 import { model } from 'mota';
 import { host } from '../common/host';
 import docs from '../models/Docs';
 import './index.less';
 
-const UPDATE_DELAY = 100;
+const UPDATE_DELAY = 200;
 
 @model(docs)
 export class Article extends React.Component {
@@ -28,10 +27,13 @@ export class Article extends React.Component {
   }
 
   async onUpdate() {
-    await sleep(UPDATE_DELAY);
-    host.emit('showArticle', { model: this.model });
-    console.log('event', 'showArticle');
-    this.handleLazyElements();
+    if (this.updateTimer) clearTimeout(this.updateTimer);
+    this.updateTimer = setTimeout(() => {
+      if (!this.updateTimer) return;
+      console.log('event', 'showArticle');
+      host.emit('showArticle', { model: this.model });
+      this.handleLazyElements();
+    }, UPDATE_DELAY);
   }
 
   async handleLazyElements() {
