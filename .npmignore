@@ -3,3 +3,8 @@ node_modules/
 src/
 docs/
 markdown/
+.nyc_output/
+coverage/
+.dawn/
+jsconfig.json 
+test/
