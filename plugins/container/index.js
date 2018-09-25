@@ -3,7 +3,7 @@ const debug = require('debug')('Container');
 
 class Container extends doczilla.Plugin {
 
-  constructor(options, doczilla) {
+  constructor(options, doczilla) { 
     super(options, doczilla);
     doczilla.on('afterCreateParser', parser => {
       const event = { containers: [] };

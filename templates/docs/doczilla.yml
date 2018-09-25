@@ -13,9 +13,7 @@ locales:
     groups:
       - name: guide
         text: 入门
-      - name: plugin
-        text: 插件
         
     docs:
-      - ./markdown/**/*.md
+      - ./**/*.md
       - '!./node_modules/**/*.md'

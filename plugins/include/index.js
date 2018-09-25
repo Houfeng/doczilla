@@ -13,7 +13,7 @@ class Include extends doczilla.Plugin {
       name: 'include',
       render: this.render.bind(this)
     });
-  }
+  } 
 
   async render(opts) {
     const { param, doc } = opts;

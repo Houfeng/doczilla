@@ -22,15 +22,14 @@ cmdline
 
   .root.command(['i', 'init'])
   .option(['-p', '--path'], 'string')
-  .option(['--plugin'], 'switch')
-  .action(async function (path) {
+  .option(['-t', '--type'], 'string')
+  .action(async function (path, type) {
     try {
       const generator = new Generator(path);
-      await generator.create();
+      await generator.create(type);
     } catch (err) {
       onError(err);
     }
-    return false;
   }, false)
 
   .root.command(['d', 'dev'])
