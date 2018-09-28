@@ -12,8 +12,7 @@ locales:
         url: https://github.com/Houfeng/doczilla
     groups:
       - name: guide
-        text: 入门
-        
+        text: 入门   
     docs:
       - ./**/*.md
       - '!./node_modules/**/*.md'

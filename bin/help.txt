@@ -2,13 +2,16 @@
 Usage: doc <command> [options]
 
 Commands:
-   i, init         初始化一个项目
-   d, dev          启动本地预览服务
-   b, build        构建所有文档
+   i, init        Initialize a project
+   d, dev         Start preview service
+   b, build       Build all documents
 
 Options:
-  -p, --path      指定文档项目根目录
-  -t, --type      指定项目类型（针对 init）
-  -v, --version   显示当前版本信息
-  -h, --help      显示帮助信息
-  
+  -p, --path      Project root directory
+  -t, --type      Project type (for init)
+  -v, --version   Version information
+  -h, --help      Help information
+
+Homepage:
+  http://houfeng.net/doczilla/
+

@@ -54,7 +54,7 @@ export class Docs {
 
   setLocation = (lang, gname, dname) => {
     const baseInfo = this.getBaseInfo();
-    this.lang = lang || baseInfo.locale || '';
+    this.lang = lang || baseInfo.lang || '';
     this.gname = gname || baseInfo.group || '';
     this.dname = (dname || baseInfo.doc || '').split('.')[0];
     if (!this.locales) return;

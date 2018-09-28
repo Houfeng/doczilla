@@ -15,7 +15,6 @@ locales:
         text: 入门
       - name: plugin
         text: 插件
-        
     docs:
       - ./markdown/**/*.md
       - '!./node_modules/**/*.md'
