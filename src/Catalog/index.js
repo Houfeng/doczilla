@@ -25,7 +25,7 @@ export class Catalog extends React.Component {
     return groups.map(item => {
       return <li className="group-item" key={item.name}>
         <a>
-          <i className="fa fa-th-large" aria-hidden="true"></i>{item.text}
+          <i className="fa fa-bookmark" aria-hidden="true"></i>{item.text}
         </a>
         <ul className="doc">
           {this.renderDocs(item)}

@@ -1,0 +1,8 @@
+{
+  "name": "doczilla-anchor",
+  "version": "1.0.0",
+  "description": "doczilla plugin example",
+  "main": "./lib/index.js",
+  "author": "Houfeng",
+  "license": "ISC"
+}

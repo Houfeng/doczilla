@@ -1,6 +1,6 @@
 {
   "name": "doczilla",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "description": "The fastest and easy-to-use document generation tool",
   "main": "./lib/index.js",
   "bin": {
@@ -30,7 +30,9 @@
     "jquery": "^3.2.1",
     "js-yaml": "^3.9.1",
     "markdown-it": "^8.4.2",
+    "markdown-it-anchor": "^5.0.2",
     "markdown-it-container": "^2.0.0",
+    "markdown-it-table-of-contents": "^0.4.3",
     "mkdirp": "^0.5.1",
     "mota": "^0.9.0",
     "nokit-plugin-express": "^0.0.5",
