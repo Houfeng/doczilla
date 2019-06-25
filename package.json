@@ -1,6 +1,6 @@
 {
   "name": "doczilla",
-  "version": "3.2.2",
+  "version": "3.2.4",
   "description": "The fastest and easy-to-use document generation tool",
   "main": "./lib/index.js",
   "bin": {
@@ -34,15 +34,24 @@
     "markdown-it-container": "^2.0.0",
     "markdown-it-table-of-contents": "^0.4.3",
     "mkdirp": "^0.5.1",
-    "mota": "^0.9.0",
+    "mota": "^3.2.2",
     "nokit-plugin-express": "^0.0.5",
     "nokitjs": "^1.26.5",
     "ntils": "^4.0.4",
     "oneport": "^1.0.2",
     "prismjs": "^1.8.3",
-    "react": "^16.5.1",
-    "react-dom": "^16.5.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-router-dom": "^4.3.1",
     "stp": "^0.0.4"
+  },
+  "devDependencies": {
+    "dn-middleware-call": "^1.0.3",
+    "dn-middleware-clean": "^1.0.2",
+    "dn-middleware-copy": "^0.2.7",
+    "dn-middleware-lint": "^2.1.4",
+    "dn-middleware-server": "^1.1.3",
+    "dn-middleware-unit": "^0.2.1",
+    "dn-middleware-webpack": "^1.11.5"
   }
 }

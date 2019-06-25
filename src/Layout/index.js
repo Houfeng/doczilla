@@ -109,7 +109,7 @@ export class Layout extends React.Component {
 
   render() {
     return <div>
-      <nav className="navbar navbar-default">
+      <nav className="navbar navbar-default navbar-fixed-top">
         <div className="container-fluid">
           {this.renderHeader()}
           {this.renderCollapse()}

@@ -15,8 +15,7 @@
 </head>
 
 <body>
-  <div id="root"><div data-reactroot=""><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="./"><i class="icon fa fa-graduation-cap" aria-hidden="true"></i><span class="name">Doczilla</span></a></div><div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"><form class="navbar-form navbar-left"><div class="form-group search"><span class="separator"></span><input type="text" class="form-control" placeholder="Search by keyword ..." value=""/></div></form><ul class="nav navbar-nav navbar-right"><li><a href="https://github.com/Houfeng/doczilla">GitHub</a></li><li class="dropdown locales"><a class="dropdown-toggle" data-toggle="dropdown" role="button">中文<!-- --> <span class="caret"></span></a><ul class="dropdown-menu"><li><a href="zh/guide/quick.html">中文</a></li></ul></li></ul></div></div></nav><div class="container"><div class="panel panel-default"><div class="panel-body"><div class="row"><div class="col-md-3 col-side"><div class="catalog"><ul class="group"><li class="group-item"><a><i class="fa fa-bookmark" aria-hidden="true"></i>入门</a><ul class="doc"><li class="doc-item"><a class="active" href="zh/guide/quick.html">快速开始</a></li><li class="doc-item"><a class="" href="zh/guide/config.html">配置文档</a></li><li class="doc-item"><a class="" href="zh/guide/deploy.html">部署文档</a></li></ul></li><li class="group-item"><a><i class="fa fa-bookmark" aria-hidden="true"></i>插件</a><ul class="doc"><li class="doc-item"><a class="" href="zh/plugin/use.html">使用插件</a></li><li class="doc-item"><a class="" href="zh/plugin/dev.html">开发插件</a></li></ul></li></ul></div></div><div class="col-md-9 col-main"><div class="article markdown-body"><h1 id="%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B">快速开始</h1>
-<p><div class="table-of-contents"><ul><li><a href="#%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B">快速开始</a></li></ul></div></p>
+  <div id="root"><div data-reactroot=""><nav class="navbar navbar-default navbar-fixed-top"><div class="container-fluid"><div class="navbar-header"><button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="./"><i class="icon fa fa-graduation-cap" aria-hidden="true"></i><span class="name">Doczilla</span></a></div><div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"><form class="navbar-form navbar-left"><div class="form-group search"><span class="separator"></span><input type="text" class="form-control" placeholder="Search by keyword ..." value=""/></div></form><ul class="nav navbar-nav navbar-right"><li><a href="https://github.com/Houfeng/doczilla">GitHub</a></li><li class="dropdown locales"><a class="dropdown-toggle" data-toggle="dropdown" role="button">中文<!-- --> <span class="caret"></span></a><ul class="dropdown-menu"><li><a href="zh/guide/quick.html">中文</a></li></ul></li></ul></div></div></nav><div class="container"><div class="panel panel-default"><div class="panel-body"><div class="row"><div class="col-md-3 col-side"><div class="catalog"><ul class="group"><li class="group-item"><a><i class="fa fa-bookmark" aria-hidden="true"></i>入门</a><ul class="doc"><li class="doc-item"><a class="active" href="zh/guide/quick.html">快速开始</a></li><li class="doc-item"><a class="" href="zh/guide/config.html">配置文档</a></li><li class="doc-item"><a class="" href="zh/guide/deploy.html">部署文档</a></li></ul></li><li class="group-item"><a><i class="fa fa-bookmark" aria-hidden="true"></i>插件</a><ul class="doc"><li class="doc-item"><a class="" href="zh/plugin/use.html">使用插件</a></li><li class="doc-item"><a class="" href="zh/plugin/dev.html">开发插件</a></li></ul></li></ul></div></div><div class="col-md-9 col-main"><div class="article markdown-body"><h1 id="%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B">快速开始</h1>
 <h3 id="%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%8C%E5%AE%89%E8%A3%85%E5%B7%A5%E5%85%B7">第一步，安装工具</h3>
 <p>首先，需要安装命令行工具 <code>doczilla</code>，使用命令行工具可方便的「创建文档项目、本地编写及预览、构建部署版本」，同时，还可用于「开发 <code>doczilla</code> 插件」。</p>
 <pre><code class="language-sh">npm i doczilla -g
@@ -65,13 +64,13 @@
 </code></pre>
 <p>在浏览器打开提示的 URL，然后在项目合适的目录任意创建 <code>markdown</code> 文件，只要为配置中 <code>文档匹配表达式</code> 即可。</p>
 <p>示例文档</p>
-<pre><code class="language-md">---
+<pre><code class="language-md"><span class="token hr punctuation">---</span>
 name: demo
 title: 示例文档
-group: guide
----
+<span class="token title important">group: guide
+<span class="token punctuation">---</span></span>
 
-# 示例文档
+<span class="token title important"><span class="token punctuation">#</span> 示例文档</span>
 
 这是一个示例文档
 
@@ -108,7 +107,7 @@ group: guide
 </tr>
 </tbody>
 </table>
-</div></div></div></div></div></div><footer class="footer">Powered By <!-- -->doczilla<!-- --> v<!-- -->3.2.2</footer></div></div>
+</div></div></div></div></div></div><footer class="footer">Powered By <!-- -->doczilla<!-- --> v<!-- -->3.2.4</footer></div></div>
   <script src="./data.js"></script>
   <script src="./assets/index.js"></script>
   <script src="./plugins/doczilla-highlight/index.js"></script></body>
