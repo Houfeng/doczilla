@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-const cmdline = require('cmdline');
 const path = require('path');
 const console = require('console3');
 const pkg = require('../package');
 const Generator = require('../');
+const { cmdline } = require('cmdline');
 
 function onError(err) {
   if (process.env.DEBUG) {
