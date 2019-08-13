@@ -1,7 +1,7 @@
 port: 9527
 output: ./docs
 
-mode: static
+mode: browser
 
 locales:
   - name: zh

@@ -1,6 +1,6 @@
 {
   "name": "doczilla",
-  "version": "3.2.5",
+  "version": "4.0.0",
   "description": "The fastest and easy-to-use document generation tool",
   "main": "./lib/index.js",
   "bin": {
@@ -40,9 +40,9 @@
     "ntils": "^4.0.4",
     "oneport": "^1.0.2",
     "prismjs": "^1.8.3",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-router-dom": "^4.3.1",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-router-dom": "^5.0.1",
     "stp": "^0.0.4"
   },
   "devDependencies": {
