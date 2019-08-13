@@ -1,6 +1,6 @@
 {
   "name": "doczilla",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "The fastest and easy-to-use document generation tool",
   "main": "./lib/index.js",
   "bin": {
